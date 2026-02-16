@@ -4,6 +4,7 @@ import { theme } from "./theme/theme"
 import React from "react"
 import { Header } from "./Tradicional/Header/Header"
 import { Options } from "./Tradicional/Options/Options"
+import { Choices } from "./Tradicional/Choices/Choices"
 
 export const App = () => {
   return (
@@ -16,7 +17,7 @@ export const App = () => {
           margin: '0 30%',
         }}>
           <Header/>
-          <Options/>
+          <Choices/>
         </Box>
     </ThemeProvider>
   )
