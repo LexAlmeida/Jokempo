@@ -10,9 +10,11 @@ export const Header = () => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            padding: '1rem',
+            padding: '3% 4%',
+            marginTop: '5%',
             marginBottom: '2rem',
             boxShadow: 'none',
+            borderRadius: '16px',
             border: '2px solid #5b6b84',
             width: '100%',
         }}>
