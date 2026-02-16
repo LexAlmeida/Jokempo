@@ -5,7 +5,7 @@ export const theme = createTheme({
     MuiCssBaseline:{
       styleOverrides:{
         body:{
-        background: "linear-gradient(180deg, #1F3756 0%, #141539 100%)",
+        background: "radial-gradient(circle at top, #1f3656 30%, #14173a 80%)",
         minHeight: "100vh",
         margin: 0
         }

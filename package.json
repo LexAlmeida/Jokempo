@@ -17,5 +17,17 @@
   "bugs": {
     "url": "https://github.com/LexAlmeida/Jokempo/issues"
   },
-  "homepage": "https://github.com/LexAlmeida/Jokempo#readme"
+  "homepage": "https://github.com/LexAlmeida/Jokempo#readme",
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^7.3.8",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "vite": "^7.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3"
+  }
 }
