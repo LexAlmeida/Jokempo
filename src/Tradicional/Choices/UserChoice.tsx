@@ -9,7 +9,6 @@ interface UserChoiceProps {
 }
 
 export const UserChoice = ({userChoice}: UserChoiceProps) => {   
-    console.log(userChoice)
     const choicesMap = {
         'paper': <Paper/>,
         'rock': <Rock/>,
