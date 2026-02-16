@@ -1,11 +1,23 @@
 import React from "react"
 import { Box } from "@mui/material"
 import { Scissors } from "../Options/Scissors"
+import { Paper } from "../Options/Paper";
+import { Rock } from "../Options/Rock";
 
-export const UserChoice = () => {
+interface UserChoiceProps {
+    userChoice: 'paper' | 'rock' | 'scissors';
+}
+
+export const UserChoice = ({userChoice}: UserChoiceProps) => {   
+    console.log(userChoice)
+    const choicesMap = {
+        'paper': <Paper/>,
+        'rock': <Rock/>,
+        'scissors': <Scissors/>
+    }
     return (
-        <Box> 
-            <Scissors/>
+        <Box>
+            {choicesMap[userChoice]}
         </Box>
     )
 }

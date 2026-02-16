@@ -1,11 +1,15 @@
-import React from "react"
+import React, { useState } from "react"
 import { Paper } from "./Paper"
 import { Rock } from "./Rock"
 import { Scissors } from "./Scissors"
 import { Box } from "@mui/material"
 import triangle from '../../assets/bgTriangle.svg'
 
-export const Options = () => {
+interface OptionsProps {
+    onSelectChoice: (choice: 'paper' | 'rock' | 'scissors') => void
+}
+
+export const Options = ({ onSelectChoice }: OptionsProps) => {
     return (
         <Box sx={{
                 position: 'relative', 
@@ -36,11 +40,11 @@ export const Options = () => {
                     justifyContent: 'space-between',
                     width: '100%',
                 }}>
-                    <Paper/>
-                    <Scissors/>
+                    <Paper onClick={() => onSelectChoice('paper')}/>
+                    <Scissors onClick={() => onSelectChoice('scissors')}/>
                 </Box>
                 <Box sx={{marginTop: '10%'}}>
-                    <Rock/>
+                    <Rock onClick={() => onSelectChoice('rock')}/>
                 </Box>
             </Box>
         </Box>

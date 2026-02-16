@@ -3,7 +3,11 @@ import { Box, Typography } from "@mui/material"
 import { UserChoice } from "./UserChoice"
 import { HouseChoice } from "./HouseChoice"
 
-export const Choices = () => {
+interface ChoicesProps {
+    userChoice: 'paper' | 'rock' | 'scissors' | null;
+}
+
+export const Choices = ({userChoice}: ChoicesProps) => {
     return (
         <Box sx={{
             display: 'flex',
@@ -15,7 +19,7 @@ export const Choices = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                transform: 'scale(1.7)'
+                transform: 'scale(1.5)'
             }}>
                 <Typography sx={{
                     color: 'white',
@@ -23,13 +27,13 @@ export const Choices = () => {
                     fontWeight: 'bold',
                     marginBottom: '50px'
                 }}>You Picked</Typography>
-                <UserChoice/>
+                <UserChoice userChoice={userChoice!}/>
             </Box>
             <Box sx={{
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                transform: 'scale(1.7)'
+                transform: 'scale(1.5)'
             }}>
                 <Typography sx={{
                     color: 'white',

@@ -15,7 +15,7 @@ export const Header = () => {
             marginBottom: '2rem',
             boxShadow: 'none',
             borderRadius: '16px',
-            border: '2px solid #5b6b84',
+            border: '4px solid #5b6b84',
             width: '100%',
         }}>
             <AppTitle/>

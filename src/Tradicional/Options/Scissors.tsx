@@ -2,7 +2,11 @@ import React from "react"
 import { Box } from "@mui/material"
 import scissors from "../../assets/iconScissors.svg"
 
-export const Scissors = () => {
+interface ScissorsProps {
+    onClick?: () => void
+}
+
+export const Scissors = ({ onClick }: ScissorsProps) => {
     return (
         <Box sx={{
             display: 'flex',
@@ -12,7 +16,8 @@ export const Scissors = () => {
             height: '225px',
             borderRadius: '50%',
             backgroundColor: '#eca00f',
-        }}>
+            cursor: 'pointer',
+        }} onClick={onClick}>
             <Box sx={{
                 display: 'flex',
                 justifyContent: 'center',

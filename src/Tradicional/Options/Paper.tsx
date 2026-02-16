@@ -2,7 +2,11 @@ import React from "react"
 import { Box } from "@mui/material"
 import paper from '../../assets/iconPaper.svg'
 
-export const Paper = () => {
+interface PaperProps {
+    onClick?: () => void
+}
+
+export const Paper = ({ onClick }: PaperProps) => {
     return (
         <Box sx={{
             display: 'flex',
@@ -12,7 +16,8 @@ export const Paper = () => {
             height: '225px',
             borderRadius: '50%',
             backgroundColor: '#516df4',
-        }}>
+            cursor: 'pointer',
+        }} onClick={onClick}>
             <Box sx={{
                 display: 'flex',
                 justifyContent: 'center',
