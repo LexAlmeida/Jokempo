@@ -4,12 +4,37 @@ import { theme } from "./theme/theme"
 import React, { useState } from "react"
 import { Header } from "./Tradicional/Header/Header"
 import { Options } from "./Tradicional/Options/Options"
-import { Choices } from "./Tradicional/Choices/Choices"
+import {  Results } from "./Tradicional/Choices/Results"
 import { UserChoice } from "./Tradicional/Choices/UserChoice"
+import { PlayAgain } from "./Tradicional/Choices/PlayAgain"
+
 
 export const App = () => {
   const [userChoice, setUserChoice] = useState<'paper' | 'rock' | 'scissors' | null>(null);
-  const handlePlayAgain = () => setUserChoice(null);
+  const [winner, setWinner] = useState<'user' | 'house' | 'draw' | null>(null);
+
+  const handlePlayAgain = () => {
+    setUserChoice(null);
+    setWinner(null);
+  }
+
+  const handleHouseChoice = (houseChoice: 'paper' | 'rock' | 'scissors' | null) => {
+        if (userChoice === houseChoice) {
+          setWinner('draw');
+          console.log('draw');
+        } else if (
+          (userChoice === 'paper' && houseChoice === 'rock') ||
+          (userChoice === 'rock' && houseChoice === 'scissors') ||
+          (userChoice === 'scissors' && houseChoice === 'paper')
+        ) {
+          setWinner('user');
+          console.log('user wins');
+        } else {
+          setWinner('house');
+          console.log('house wins');
+        }
+    
+  }
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -20,10 +45,12 @@ export const App = () => {
           margin: '0 30%',
         }}>
           <Header/>
+          
+        
           {!userChoice ?
             <Options onSelectChoice={(choice) => setUserChoice(choice)}/>
             :
-            <Choices userChoice={userChoice}/>
+            <Results userChoice={userChoice} onHouseChoice={handleHouseChoice} onPlayAgain={handlePlayAgain} winner={winner} />
           }
         </Box>
     </ThemeProvider>
