@@ -1,7 +1,7 @@
 import React from "react"
 import { Card, Typography } from "@mui/material"
 
-export const ScoreCard = () => {
+export const ScoreCard = ({score}: {score:number}) => {
     return (
         <Card sx={{
             padding: '0.8rem 2rem',
@@ -20,7 +20,7 @@ export const ScoreCard = () => {
                 fontSize: '2rem',
                 fontWeight: 'bold',
             }}>
-                12
+                {score}
             </Typography>
         </Card>
     )

@@ -12,26 +12,42 @@ export const App = () => {
   const [userChoice, setUserChoice] = useState<'paper' | 'rock' | 'scissors' | null>(null);
   const [winner, setWinner] = useState<'user' | 'house' | 'draw' | null>(null);
 
+  const [score, setScore] = useState(() => {
+    const saved = localStorage.getItem('SCORE_POINTS')
+    return saved ? Number(saved) : 0;
+  })
+
   const handlePlayAgain = () => {
     setUserChoice(null);
     setWinner(null);
   }
 
   const handleHouseChoice = (houseChoice: 'paper' | 'rock' | 'scissors' | null) => {
+    let result: 'user' | 'house' | 'draw' | null = null;
     if (userChoice === houseChoice) {
-      setWinner('draw');
-      console.log('draw');
+      result = 'draw';
+      return;
     } else if (
       (userChoice === 'paper' && houseChoice === 'rock') ||
       (userChoice === 'rock' && houseChoice === 'scissors') ||
       (userChoice === 'scissors' && houseChoice === 'paper')
     ) {
-      setWinner('user');
-      console.log('user wins');
+      result = 'user';
+      const newScore = score + 1;
+      setScore((prev) => {
+        const newScore = prev + 1;
+        localStorage.setItem('SCORE_POINTS', newScore.toString());
+        return newScore;
+      });
     } else {
-      setWinner('house');
-      console.log('house wins');
+      result = 'house';
+      setScore((prev) => {
+        const newScore = Math.max(0, prev - 1);
+        localStorage.setItem('SCORE_POINTS', newScore.toString());
+        return newScore;
+      });
     }
+    setWinner(result);
   }
   return (
     <ThemeProvider theme={theme}>
@@ -50,7 +66,7 @@ export const App = () => {
           alignItems: 'center',
           margin: '0 auto',
         }}>
-          <Header/>
+          <Header score={score}/>
           
           {!userChoice ?
             <Options onSelectChoice={(choice) => setUserChoice(choice)}/>

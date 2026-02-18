@@ -3,7 +3,7 @@ import { Card } from "@mui/material"
 import { ScoreCard } from "./ScoreCard"
 import { AppTitle } from "./AppTitle"
 
-export const Header = () => {
+export const Header = ({score}: {score:number}) => {
     return (
         <Card sx={{
             backgroundColor: 'transparent',
@@ -19,7 +19,7 @@ export const Header = () => {
             width: '100%',
         }}>
             <AppTitle/>
-            <ScoreCard/>
+            <ScoreCard score={score}/>
         </Card>
     )
 }
