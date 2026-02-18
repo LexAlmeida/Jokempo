@@ -12,8 +12,8 @@ export const Scissors = ({ onClick }: ScissorsProps) => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            width: '225px',
-            height: '225px',
+            width: {xs: '150px', sm: '175px', md: '225px'},
+            height: {xs: '150px', sm: '175px', md: '225px'},
             borderRadius: '50%',
             backgroundColor: '#eca00f',
             cursor: 'pointer',
@@ -22,12 +22,18 @@ export const Scissors = ({ onClick }: ScissorsProps) => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                width: '175px',
-                height: '175px',
+                width: {xs: '100px', sm: '125px', md: '175px'},
+                height: {xs: '100px', sm: '125px', md: '175px'},
                 borderRadius: '50%',
                 backgroundColor: '#ebebeb',
         }}>
-                <img src={scissors} alt='scissors' width={'70px'}/>
+                <Box 
+                    component='img' 
+                    src={scissors} 
+                    alt='scissors' 
+                    sx={{
+                    width: {xs: '50px', sm: '70px', md: '70px'},
+                }}/>
             </Box>
         </Box>
     )

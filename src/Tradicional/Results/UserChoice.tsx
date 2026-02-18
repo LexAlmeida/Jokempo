@@ -15,7 +15,7 @@ export const UserChoice = ({userChoice}: UserChoiceProps) => {
         'scissors': <Scissors/>
     }
     return (
-        <Box>
+        <Box sx={{zIndex: 10}}>
             {choicesMap[userChoice]}
         </Box>
     )

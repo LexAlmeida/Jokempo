@@ -12,8 +12,8 @@ export const Rock = ({ onClick }: RockProps) => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            width: '225px',
-            height: '225px',
+            width: {xs: '150px', sm: '175px', md: '225px'},
+            height: {xs: '150px', sm: '175px', md: '225px'},
             borderRadius: '50%',
             backgroundColor: '#dc3554',
             cursor: 'pointer',
@@ -22,12 +22,18 @@ export const Rock = ({ onClick }: RockProps) => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                width: '175px',
-                height: '175px',
+                width: {xs: '100px', sm: '125px', md: '175px'},
+                height: {xs: '100px', sm: '125px', md: '175px'},
                 borderRadius: '50%',
                 backgroundColor: '#ebebeb',
         }}>
-                <img src={rock} alt='rock' width={'70px'}/>
+            <Box 
+                component='img' 
+                src={rock} 
+                alt='rock' 
+                sx={{
+                width: {xs: '50px', sm: '70px', md: '70px'},
+            }}/>
             </Box>
         </Box>
     )

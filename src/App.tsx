@@ -4,9 +4,7 @@ import { theme } from "./theme/theme"
 import React, { useState } from "react"
 import { Header } from "./Tradicional/Header/Header"
 import { Options } from "./Tradicional/Options/Options"
-import {  Results } from "./Tradicional/Choices/Results"
-import { UserChoice } from "./Tradicional/Choices/UserChoice"
-import { PlayAgain } from "./Tradicional/Choices/PlayAgain"
+import {  Results } from "./Tradicional/Results/Results"
 import { Rules } from "./Tradicional/Rules/Rules"
 
 
@@ -46,7 +44,7 @@ export const App = () => {
         }}>
         <Box sx={{
           width: '100%',
-          maxWidth: '700px',
+          maxWidth: {xs: '100%', md: '900px'},
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -61,8 +59,10 @@ export const App = () => {
           }
           <Box sx={{
             position: 'absolute', 
-            bottom: {xs: '10px', sm: '20px', md: '30px'},
-            right: {xs: '10px', sm: '20px', md: '30px'},
+            bottom: { xs: '50px', md: '30px' },
+            left: { xs: '50%', md: 'auto' }, 
+            right: { xs: 'auto', md: '30px' },
+            transform: { xs: 'translateX(-50%)', md: 'none' },
           }}>
             <Rules/>
           </Box>

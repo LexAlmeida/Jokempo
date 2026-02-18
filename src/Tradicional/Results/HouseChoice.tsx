@@ -25,7 +25,7 @@ export const HouseChoice = ({onChoiceMade}: HouseChoiceProps) => {
     }, [])
 
     return (
-        <Box>
+        <Box sx={{zIndex: 10}}>
             {choicesMap[myChoice!]}
         </Box>
     )

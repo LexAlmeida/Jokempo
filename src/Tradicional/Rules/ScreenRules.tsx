@@ -15,9 +15,9 @@ export const ScreenRules = () => {
                     backgroundColor: 'transparent',
                     color: 'white',
                     fontWeight: 'bold',
-                    border: '1px solid white',
+                    border: '2px solid #5b6b84',
                     padding: '8px 30px',
-                    borderRadius: '5px',
+                    borderRadius: '8px',
                 }}>
                 Rules
             </Typography>

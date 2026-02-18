@@ -14,7 +14,7 @@ export const Options = ({ onSelectChoice }: OptionsProps) => {
         <Box sx={{
                 position: 'relative', 
                 display: 'inline-block',
-                width: '100%',
+                width: {xs: '275px', sm: '300px', md:'400px'},
                 maxWidth: '400px',
             }}
         >
@@ -26,7 +26,7 @@ export const Options = ({ onSelectChoice }: OptionsProps) => {
                 
             <Box sx={{
                 position: 'relative',
-                top: '-450px',
+                top: {xs: '-300px', sm: '-350px', md: '-450px'},
                 left: '-13%',
                 width: '125%',
                 height: '100%',
