@@ -7,6 +7,7 @@ import { Options } from "./Tradicional/Options/Options"
 import {  Results } from "./Tradicional/Choices/Results"
 import { UserChoice } from "./Tradicional/Choices/UserChoice"
 import { PlayAgain } from "./Tradicional/Choices/PlayAgain"
+import { Rules } from "./Tradicional/Rules/Rules"
 
 
 export const App = () => {
@@ -19,40 +20,54 @@ export const App = () => {
   }
 
   const handleHouseChoice = (houseChoice: 'paper' | 'rock' | 'scissors' | null) => {
-        if (userChoice === houseChoice) {
-          setWinner('draw');
-          console.log('draw');
-        } else if (
-          (userChoice === 'paper' && houseChoice === 'rock') ||
-          (userChoice === 'rock' && houseChoice === 'scissors') ||
-          (userChoice === 'scissors' && houseChoice === 'paper')
-        ) {
-          setWinner('user');
-          console.log('user wins');
-        } else {
-          setWinner('house');
-          console.log('house wins');
-        }
-    
+    if (userChoice === houseChoice) {
+      setWinner('draw');
+      console.log('draw');
+    } else if (
+      (userChoice === 'paper' && houseChoice === 'rock') ||
+      (userChoice === 'rock' && houseChoice === 'scissors') ||
+      (userChoice === 'scissors' && houseChoice === 'paper')
+    ) {
+      setWinner('user');
+      console.log('user wins');
+    } else {
+      setWinner('house');
+      console.log('house wins');
+    }
   }
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <Box sx={{
+          height: '100vh',
+          width: '100vw',
+          overflow: 'hidden', 
+          position: 'relative',
+        }}>
         <Box sx={{
+          width: '100%',
+          maxWidth: '700px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          margin: '0 30%',
+          margin: '0 auto',
         }}>
           <Header/>
           
-        
           {!userChoice ?
             <Options onSelectChoice={(choice) => setUserChoice(choice)}/>
             :
-            <Results userChoice={userChoice} onHouseChoice={handleHouseChoice} onPlayAgain={handlePlayAgain} winner={winner} />
+            <Results userChoice={userChoice} onHouseChoice={handleHouseChoice} onPlayAgain={handlePlayAgain} winner={winner}/>
           }
+          <Box sx={{
+            position: 'absolute', 
+            bottom: {xs: '10px', sm: '20px', md: '30px'},
+            right: {xs: '10px', sm: '20px', md: '30px'},
+          }}>
+            <Rules/>
+          </Box>
         </Box>
+      </Box>
     </ThemeProvider>
   )
 }

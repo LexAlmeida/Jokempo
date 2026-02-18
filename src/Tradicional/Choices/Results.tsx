@@ -31,7 +31,10 @@ export const Results = ({userChoice, onPlayAgain, winner, onHouseChoice}: Choice
                     textTransform: 'uppercase',
                     fontWeight: 'bold',
                     marginBottom: '50px'
-                }}>You Picked</Typography>
+                    }}
+                    className="text-result">
+                    You Picked
+                </Typography>
                 <div className={`icon-wrapper ${winner === 'user' ? 'winner-effect' : ''}`}>
                     <UserChoice userChoice={userChoice!}/>
                 </div>
@@ -49,8 +52,11 @@ export const Results = ({userChoice, onPlayAgain, winner, onHouseChoice}: Choice
                     color: 'white',
                     textTransform: 'uppercase',
                     fontWeight: 'bold',
-                    marginBottom: '50px'
-                }}>The House Picked</Typography>
+                    marginBottom: '50px',
+                    }}
+                    className="text-result">
+                        The House Picked
+                    </Typography>
                 <div className={`icon-wrapper ${winner === 'house' ? 'winner-effect' : ''}`}>
                     <HouseChoice onChoiceMade={onHouseChoice} />
                 </div>

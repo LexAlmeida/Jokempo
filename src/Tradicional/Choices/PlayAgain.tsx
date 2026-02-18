@@ -18,7 +18,8 @@ export const PlayAgain = ({ onPlayAgain, winner }: PlayAgainProps) => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-        }}>
+            }}
+            className="text-result">
             <Typography variant="h3" sx={{
                     color: 'white', 
                     textTransform: 'uppercase',

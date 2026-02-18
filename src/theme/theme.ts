@@ -38,6 +38,11 @@ export const theme = createTheme({
           display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',
+          zIndex:1
+        },
+        ".text-result": {
+          position: 'relative',
+          zIndex: 10
         }
       }
     }
