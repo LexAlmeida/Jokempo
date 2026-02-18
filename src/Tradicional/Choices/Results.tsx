@@ -7,7 +7,7 @@ import { PlayAgain } from "./PlayAgain";
 interface ChoicesProps {
     userChoice: 'paper' | 'rock' | 'scissors' | null;
     onPlayAgain: () => void;
-    winner?: 'user' | 'house' | 'draw' | null;
+    winner: 'user' | 'house' | 'draw' | null;
     onHouseChoice: (choice: 'paper' | 'rock' | 'scissors' | null) => void;
 }
 
@@ -37,7 +37,7 @@ export const Results = ({userChoice, onPlayAgain, winner, onHouseChoice}: Choice
                 </div>
             </Box>
             <Box>
-                <PlayAgain onPlayAgain={onPlayAgain}/>
+                <PlayAgain onPlayAgain={onPlayAgain} winner={winner}/>
             </Box>
             <Box sx={{
                 display: 'flex',
@@ -52,7 +52,7 @@ export const Results = ({userChoice, onPlayAgain, winner, onHouseChoice}: Choice
                     marginBottom: '50px'
                 }}>The House Picked</Typography>
                 <div className={`icon-wrapper ${winner === 'house' ? 'winner-effect' : ''}`}>
-                    <HouseChoice onChoiceMade={onHouseChoice}/>
+                    <HouseChoice onChoiceMade={onHouseChoice} />
                 </div>
             </Box>
         </Box>

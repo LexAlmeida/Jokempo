@@ -3,19 +3,29 @@ import React from "react";
 
 interface PlayAgainProps {
     onPlayAgain: () => void;
+    winner: 'user' | 'house' | 'draw' | null;
 }
 
-export const PlayAgain = ({ onPlayAgain }: PlayAgainProps) => {
-   
+export const PlayAgain = ({ onPlayAgain, winner }: PlayAgainProps) => {
+   const getWinnerText = () => {
+    if (winner === 'user') return 'You Win!';
+    if (winner === 'house') return 'You Lose!';
+    if (winner === 'draw') return 'It\'s a Draw!';
+    return '';
+   }
     return (
-        <Box>
+        <Box sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+        }}>
             <Typography variant="h3" sx={{
                     color: 'white', 
                     textTransform: 'uppercase',
                     fontWeight: 'bold',
                     marginTop: '100px',
                     }}>
-                        You Win
+                        {getWinnerText()}
             </Typography>
             <Button 
                 variant="contained"
