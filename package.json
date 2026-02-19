@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "![Design preview for the Rock, Paper, Scissors coding challenge](preview.jpg)",
   "main": "index.js",
+  "homepage": "https://lexalmeida.github.io/Jokempo/",
   "scripts": {
     "dev": "vite",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -17,7 +21,6 @@
   "bugs": {
     "url": "https://github.com/LexAlmeida/Jokempo/issues"
   },
-  "homepage": "https://github.com/LexAlmeida/Jokempo#readme",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
@@ -28,6 +31,7 @@
   },
   "devDependencies": {
     "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3"
+    "@types/react-dom": "^19.2.3",
+    "gh-pages": "^6.3.0"
   }
 }

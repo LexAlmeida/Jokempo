@@ -1,54 +1,53 @@
-import { Box, CssBaseline, Typography } from "@mui/material"
-import { ThemeProvider } from "@mui/material/styles"
+import { Box, CssBaseline, ThemeProvider, Typography } from "@mui/material"
 import { theme } from "./theme/theme"
-import React, { useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import { Header } from "./Tradicional/Header/Header"
 import { Options } from "./Tradicional/Options/Options"
-import {  Results } from "./Tradicional/Results/Results"
-import { Rules } from "./Tradicional/Rules/Rules"
+import { UserChoice } from "./Tradicional/Results/UserChoice"
+import {Rules} from "./Tradicional/Rules/Rules"
+import {Results} from "./Tradicional/Results/Results"
 
+type Choice = 'paper' | 'rock' | 'scissors' | null;
+type Winner = 'user' | 'house' | 'draw' | null
 
 export const App = () => {
   const [userChoice, setUserChoice] = useState<'paper' | 'rock' | 'scissors' | null>(null);
   const [winner, setWinner] = useState<'user' | 'house' | 'draw' | null>(null);
 
   const [score, setScore] = useState(() => {
-    const saved = localStorage.getItem('SCORE_POINTS')
+    const saved = localStorage.getItem('SCORE_POINTS');
     return saved ? Number(saved) : 0;
   })
+
+  useEffect(() => {
+    localStorage.setItem('SCORE_POINTS', score.toString())
+  });
 
   const handlePlayAgain = () => {
     setUserChoice(null);
     setWinner(null);
   }
 
-  const handleHouseChoice = (houseChoice: 'paper' | 'rock' | 'scissors' | null) => {
-    let result: 'user' | 'house' | 'draw' | null = null;
+  const handleHouseChoice = useCallback((houseChoice: Choice) => {
+
+
+    let result: Winner = null;
+
     if (userChoice === houseChoice) {
       result = 'draw';
-      return;
     } else if (
       (userChoice === 'paper' && houseChoice === 'rock') ||
       (userChoice === 'rock' && houseChoice === 'scissors') ||
       (userChoice === 'scissors' && houseChoice === 'paper')
     ) {
-      result = 'user';
-      const newScore = score + 1;
-      setScore((prev) => {
-        const newScore = prev + 1;
-        localStorage.setItem('SCORE_POINTS', newScore.toString());
-        return newScore;
-      });
+      result = 'user';   
+      setScore((prev) => prev + 1);
     } else {
       result = 'house';
-      setScore((prev) => {
-        const newScore = Math.max(0, prev - 1);
-        localStorage.setItem('SCORE_POINTS', newScore.toString());
-        return newScore;
-      });
+      setScore((prev) =>  Math.max(0, prev - 1));
     }
     setWinner(result);
-  }
+  },[userChoice, winner]);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
