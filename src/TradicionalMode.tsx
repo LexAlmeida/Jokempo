@@ -1,15 +1,13 @@
 import { Box, CssBaseline, ThemeProvider, Typography } from "@mui/material"
-import { theme } from "./theme/theme"
 import React, { useCallback, useEffect, useState } from "react"
 import { Header } from "./Tradicional/Header/Header"
 import { Options } from "./Tradicional/Options/Options"
-import {Rules} from "./Tradicional/Rules/Rules"
 import {Results} from "./Tradicional/Results/Results"
 
 type Choice = 'paper' | 'rock' | 'scissors' | null;
 type Winner = 'user' | 'house' | 'draw' | null
 
-export const App = () => {
+export const TradicionalMode = () => {
   const [userChoice, setUserChoice] = useState<'paper' | 'rock' | 'scissors' | null>(null);
   const [winner, setWinner] = useState<'user' | 'house' | 'draw' | null>(null);
 
@@ -48,8 +46,6 @@ export const App = () => {
     setWinner(result);
   },[userChoice, winner]);
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
       <Box sx={{
           height: '100vh',
           width: '100vw',
@@ -78,10 +74,8 @@ export const App = () => {
             right: { xs: 'auto', md: '30px' },
             transform: { xs: 'translateX(-50%)', md: 'none' },
           }}>
-            <Rules/>
           </Box>
         </Box>
       </Box>
-    </ThemeProvider>
   )
 }

@@ -1,9 +1,10 @@
 import { Box, Button, Dialog, Typography } from "@mui/material";
 import React, { useState } from "react";
-import rules from '../../assets/imageRulesBonus.svg'
-import close from '../../assets/iconClose.svg'
+import rulesBonus from '../assets/imageRulesBonus.svg'
+import rules from '../assets/imageRules.svg'
+import close from '../assets/iconClose.svg'
 
-export const ScreenRules = () => {
+export const Rules = ({isTradicional}: {isTradicional: boolean}) => {
     const [open, setOpen] = useState(false);
     const handleClickOpen = () =>  setOpen(true);
     const handleClose = () => setOpen(false);
@@ -52,7 +53,7 @@ export const ScreenRules = () => {
                         cursor: 'pointer',
                     }}/>
                 </Box>
-                <img src={rules} alt="Rules Image" style={{width: '100%', height: 'auto', padding: '35px 50px'}}/>
+                <img src={isTradicional ? rules : rulesBonus} alt="Rules Image" style={{width: '100%', height: 'auto', padding: '35px 50px'}}/>
         </Dialog>
         </>
     )
