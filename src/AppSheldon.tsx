@@ -1,16 +1,16 @@
 import { Box, CssBaseline, ThemeProvider, Typography } from "@mui/material"
 import { theme } from "./theme/theme"
 import React, { useCallback, useEffect, useState } from "react"
-import { Header } from "./Tradicional/Header/Header"
-import { Options } from "./Tradicional/Options/Options"
-import {Rules} from "./Tradicional/Rules/Rules"
-import {Results} from "./Tradicional/Results/Results"
+import { Header } from "./SheldonCooper/Header/Header"
+import { Options } from "./SheldonCooper/Options/Options"
+import {Rules} from "./SheldonCooper/Rules/Rules"
+import {Results} from "./SheldonCooper/Results/Results"
 
-type Choice = 'paper' | 'rock' | 'scissors' | null;
+type Choice = 'paper' | 'rock' | 'scissors' | 'spock' | 'lizard' | null;
 type Winner = 'user' | 'house' | 'draw' | null
 
 export const App = () => {
-  const [userChoice, setUserChoice] = useState<'paper' | 'rock' | 'scissors' | null>(null);
+  const [userChoice, setUserChoice] = useState<'paper' | 'rock' | 'scissors' | 'spock' | 'lizard' | null>(null);
   const [winner, setWinner] = useState<'user' | 'house' | 'draw' | null>(null);
 
   const [score, setScore] = useState(() => {
@@ -35,9 +35,11 @@ export const App = () => {
     if (userChoice === houseChoice) {
       result = 'draw';
     } else if (
-      (userChoice === 'paper' && houseChoice === 'rock') ||
-      (userChoice === 'rock' && houseChoice === 'scissors') ||
-      (userChoice === 'scissors' && houseChoice === 'paper')
+      (userChoice === 'paper' && (houseChoice === 'rock' || houseChoice === 'spock')) ||
+      (userChoice === 'rock' && (houseChoice === 'scissors' || houseChoice === 'lizard')) ||
+      (userChoice === 'lizard' && (houseChoice === 'spock' || houseChoice === 'paper')) ||
+      (userChoice === 'spock' && (houseChoice === 'scissors' || houseChoice === 'rock')) ||
+      (userChoice === 'scissors' && (houseChoice === 'paper' || houseChoice === 'lizard'))
     ) {
       result = 'user';   
       setScore((prev) => prev + 1);

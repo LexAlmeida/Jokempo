@@ -12,8 +12,8 @@ export const Scissors = ({ onClick }: ScissorsProps) => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            width: {xs: '150px', sm: '175px', md: '225px'},
-            height: {xs: '150px', sm: '175px', md: '225px'},
+            width: {xs: '100px', sm: '130px', md: '165px'},
+            height: {xs: '100px', sm: '130px', md: '165px'},
             borderRadius: '50%',
             backgroundColor: '#eca00f',
             cursor: 'pointer',
@@ -22,8 +22,8 @@ export const Scissors = ({ onClick }: ScissorsProps) => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                width: {xs: '100px', sm: '125px', md: '175px'},
-                height: {xs: '100px', sm: '125px', md: '175px'},
+                width: {xs: '75px', sm: '100px', md: '130px'},
+                height: {xs: '75px', sm: '100px', md: '130px'},
                 borderRadius: '50%',
                 backgroundColor: '#ebebeb',
         }}>
@@ -32,7 +32,7 @@ export const Scissors = ({ onClick }: ScissorsProps) => {
                     src={scissors} 
                     alt='scissors' 
                     sx={{
-                    width: {xs: '50px', sm: '70px', md: '70px'},
+                    width: {xs: '35px', sm: '50px', md: '70px'},
                 }}/>
             </Box>
         </Box>

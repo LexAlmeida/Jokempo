@@ -1,12 +1,12 @@
 import React from "react"
 import { Box } from "@mui/material"
-import rock from "../../assets/iconRock.svg"
+import lizard from '../../assets/iconLizard.svg'
 
-interface RockProps {
+interface PaperProps {
     onClick?: () => void
 }
 
-export const Rock = ({ onClick }: RockProps) => {
+export const Lizard = ({ onClick }: PaperProps) => {
     return (
         <Box sx={{
             display: 'flex',
@@ -15,7 +15,7 @@ export const Rock = ({ onClick }: RockProps) => {
             width: {xs: '100px', sm: '130px', md: '165px'},
             height: {xs: '100px', sm: '130px', md: '165px'},
             borderRadius: '50%',
-            backgroundColor: '#dc3554',
+            backgroundColor: '#8857e6',
             cursor: 'pointer',
         }} onClick={onClick}>
             <Box sx={{
@@ -29,10 +29,10 @@ export const Rock = ({ onClick }: RockProps) => {
         }}>
             <Box 
                 component='img' 
-                src={rock} 
-                alt='rock' 
+                src={lizard} 
+                alt='lizard' 
                 sx={{
-                width: {xs: '35px', sm: '50px', md: '70px'},
+                width: {xs: '50px', sm: '60px', md: '90px'},
             }}/>
             </Box>
         </Box>
