@@ -38,7 +38,7 @@ export const theme = createTheme({
           display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',
-          zIndex:1
+          zIndex: 0
         },
         ".text-result": {
           position: 'relative',
