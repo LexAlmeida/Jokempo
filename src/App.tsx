@@ -1,11 +1,11 @@
 import { Box, CssBaseline, ThemeProvider, Typography } from "@mui/material"
 import { theme } from "./theme/theme"
 import React, { useCallback, useEffect, useState } from "react"
-import { Header } from "./Tradicional/Header/Header"
-import { Options } from "./Tradicional/Options/Options"
-import { UserChoice } from "./Tradicional/Results/UserChoice"
-import {Rules} from "./Tradicional/Rules/Rules"
-import {Results} from "./Tradicional/Results/Results"
+import { Header } from "./SheldonCooper/Header/Header"
+import { Options } from "./SheldonCooper/Options/Options"
+import { UserChoice } from "./SheldonCooper/Results/UserChoice"
+import {Rules} from "./SheldonCooper/Rules/Rules"
+import {Results} from "./SheldonCooper/Results/Results"
 
 type Choice = 'paper' | 'rock' | 'scissors' | null;
 type Winner = 'user' | 'house' | 'draw' | null
