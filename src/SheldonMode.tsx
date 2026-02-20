@@ -3,13 +3,12 @@ import { theme } from "./theme/theme"
 import React, { useCallback, useEffect, useState } from "react"
 import { Header } from "./SheldonCooper/Header/Header"
 import { Options } from "./SheldonCooper/Options/Options"
-import {Rules} from "./SheldonCooper/Rules/Rules"
 import {Results} from "./SheldonCooper/Results/Results"
 
 type Choice = 'paper' | 'rock' | 'scissors' | 'spock' | 'lizard' | null;
 type Winner = 'user' | 'house' | 'draw' | null
 
-export const App = () => {
+export const SheldonMode = () => {
   const [userChoice, setUserChoice] = useState<'paper' | 'rock' | 'scissors' | 'spock' | 'lizard' | null>(null);
   const [winner, setWinner] = useState<'user' | 'house' | 'draw' | null>(null);
 
@@ -80,7 +79,6 @@ export const App = () => {
             right: { xs: 'auto', md: '30px' },
             transform: { xs: 'translateX(-50%)', md: 'none' },
           }}>
-            <Rules/>
           </Box>
         </Box>
       </Box>
