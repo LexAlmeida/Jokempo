@@ -5,10 +5,10 @@ import { HouseChoice } from "./HouseChoice"
 import { PlayAgain } from "./PlayAgain";
 
 interface ChoicesProps {
-    userChoice: 'paper' | 'rock' | 'scissors' | null;
+    userChoice: 'paper' | 'rock' | 'scissors' | 'spock' | 'lizard' | null;
     onPlayAgain: () => void;
     winner: 'user' | 'house' | 'draw' | null;
-    onHouseChoice: (choice: 'paper' | 'rock' | 'scissors' | null) => void;
+    onHouseChoice: (choice: 'paper' | 'rock' | 'scissors' | 'spock' | 'lizard' | null) => void;
 }
 export const Results = ({userChoice, onPlayAgain, winner, onHouseChoice}: ChoicesProps) => {
     return (

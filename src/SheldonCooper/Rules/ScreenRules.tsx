@@ -1,6 +1,6 @@
 import { Box, Button, Dialog, Typography } from "@mui/material";
 import React, { useState } from "react";
-import rules from '../../assets/imageRules.svg'
+import rules from '../../assets/imageRulesBonus.svg'
 import close from '../../assets/iconClose.svg'
 
 export const ScreenRules = () => {
