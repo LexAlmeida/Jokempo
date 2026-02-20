@@ -17,6 +17,7 @@ export const Header = ({score}: {score:number}) => {
             borderRadius: '16px',
             border: '4px solid #5b6b84',
             width: '100%',
+            zIndex: 10,
         }}>
             <AppTitle/>
             <ScoreCard score={score}/>

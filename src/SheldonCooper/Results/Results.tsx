@@ -43,7 +43,7 @@ export const Results = ({userChoice, onPlayAgain, winner, onHouseChoice}: Choice
                     You Picked
                 </Typography>
                 <Box className={`icon-wrapper ${winner === 'user' ? 'winner-effect' : ''}`}
-                     sx={{ transform: { xs: 'scale(0.8)', md: 'scale(1.3)' } }}>
+                     sx={{ position: 'relative', zIndex: winner === 'user' ? 0 : 1}}>
                     <UserChoice userChoice={userChoice!} />
                 </Box>
             </Box>
@@ -54,7 +54,7 @@ export const Results = ({userChoice, onPlayAgain, winner, onHouseChoice}: Choice
                 textAlign: 'center',
                 mt: { xs: -5, sm: -8 , md: 0 },
                 mx: { md: 8 },
-                zIndex: 10
+                zIndex: 1
             }}>
                 <PlayAgain onPlayAgain={onPlayAgain} winner={winner}/>
             </Box>
@@ -74,12 +74,12 @@ export const Results = ({userChoice, onPlayAgain, winner, onHouseChoice}: Choice
                     mt: { xs: 3, md: 0 },
                     mb: { xs: 0, md: 8 },
                     fontSize: { xs: '15px', md: '20px' },
-                    zIndex: 10
+                    zIndex: 1
                 }}>
                     The House Picked
                 </Typography>
                 <Box className={`icon-wrapper ${winner === 'house' ? 'winner-effect' : ''}`}
-                     sx={{ transform: { xs: 'scale(0.8)', md: 'scale(1.3)' } }}>
+                     sx={{ position: 'relative', zIndex: winner === 'house' ? 0 : 1 }}>
                     <HouseChoice onChoiceMade={onHouseChoice} />
                 </Box>
             </Box>
