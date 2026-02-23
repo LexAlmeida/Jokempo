@@ -7,7 +7,7 @@ import { Rules } from "./src/Components/Rules";
 import { SwitchMode } from "./src/Components/SwitchMode";
 
 export const App = () => {
-    const [isTradicional, setIsTradicional] = useState(false);
+    const [isTradicional, setIsTradicional] = useState(true);
     const mode = isTradicional ? 'tradicional' : 'sheldon';
     const modeMap = {
         'tradicional': <TradicionalMode/>,
@@ -34,7 +34,9 @@ export const App = () => {
                     marginTop: {xs: '-30%', sm: '-10%', md: '-8%'},
                     }}
                 >
-                    <SwitchMode/>
+                    <SwitchMode
+                        checked={isTradicional}
+                        onChange={() => setIsTradicional(!isTradicional)}/>
                     <Rules isTradicional={isTradicional}/>
                 </Box>
             </Box>
