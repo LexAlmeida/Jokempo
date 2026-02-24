@@ -7,7 +7,7 @@ import { Rules } from "./src/Components/Rules";
 import { SwitchMode } from "./src/Components/SwitchMode";
 
 export const App = () => {
-    const [isTradicional, setIsTradicional] = useState(true);
+    const [isTradicional, setIsTradicional] = useState(false);
     const mode = isTradicional ? 'tradicional' : 'sheldon';
     const modeMap = {
         'tradicional': <TradicionalMode/>,

@@ -16,7 +16,7 @@ export const Header = ({score}: {score:number}) => {
             boxShadow: 'none',
             borderRadius: '16px',
             border: '4px solid #5b6b84',
-            width: '100%',
+            width: '90%',
             zIndex: 10,
         }}>
             <AppTitle/>

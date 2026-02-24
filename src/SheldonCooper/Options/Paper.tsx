@@ -12,8 +12,8 @@ export const Paper = ({ onClick }: PaperProps) => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            width: {xs: '100px', sm: '130px', md: '165px'},
-            height: {xs: '100px', sm: '130px', md: '165px'},
+            width: {xs: '100px', sm: '130px', md: '160px'},
+            height: {xs: '100px', sm: '130px', md: '160px'},
             borderRadius: '50%',
             backgroundColor: '#516df4',
             cursor: 'pointer',
@@ -22,8 +22,8 @@ export const Paper = ({ onClick }: PaperProps) => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                width: {xs: '75px', sm: '100px', md: '130px'},
-                height: {xs: '75px', sm: '100px', md: '130px'},
+                width: {xs: '75px', sm: '100px', md: '125px'},
+                height: {xs: '75px', sm: '100px', md: '125px'},
                 borderRadius: '50%',
                 backgroundColor: '#ebebeb',
         }}>
@@ -32,7 +32,7 @@ export const Paper = ({ onClick }: PaperProps) => {
                 src={paper} 
                 alt='paper' 
                 sx={{
-                width: {xs: '35px', sm: '50px', md: '70px'},
+                width: {xs: '35px', sm: '50px', md: '60px'},
             }}/>
             </Box>
         </Box>
