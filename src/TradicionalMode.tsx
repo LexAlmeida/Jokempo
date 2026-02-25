@@ -1,5 +1,5 @@
 import { Box, CssBaseline, ThemeProvider, Typography } from "@mui/material"
-import React, { useCallback, useEffect, useState } from "react"
+import React, { useCallback, useEffect, useRef, useState } from "react"
 import { Header } from "./Tradicional/Header/Header"
 import { Options } from "./Tradicional/Options/Options"
 import {Results} from "./Tradicional/Results/Results"
@@ -11,22 +11,19 @@ export const TradicionalMode = () => {
   const [userChoice, setUserChoice] = useState<'paper' | 'rock' | 'scissors' | null>(null);
   const [winner, setWinner] = useState<'user' | 'house' | 'draw' | null>(null);
 
-  const [score, setScore] = useState(() => {
-    const saved = localStorage.getItem('SCORE_POINTS');
-    return saved ? Number(saved) : 0;
-  })
+  const hasScored = useRef(false);
 
-  useEffect(() => {
-    localStorage.setItem('SCORE_POINTS', score.toString())
-  });
+  const [score, setScore] = useState(0);
 
   const handlePlayAgain = () => {
     setUserChoice(null);
     setWinner(null);
+    hasScored.current = false;
   }
 
   const handleHouseChoice = useCallback((houseChoice: Choice) => {
-
+    if(hasScored.current) return;
+    hasScored.current = true
 
     let result: Winner = null;
 
@@ -44,7 +41,7 @@ export const TradicionalMode = () => {
       setScore((prev) =>  Math.max(0, prev - 1));
     }
     setWinner(result);
-  },[userChoice, winner]);
+  },[userChoice]);
   return (
       <Box sx={{
           height: '100vh',

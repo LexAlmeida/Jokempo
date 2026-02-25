@@ -1,6 +1,6 @@
 import { Box, CssBaseline, ThemeProvider, Typography } from "@mui/material"
 import { theme } from "./theme/theme"
-import React, { useCallback, useEffect, useState } from "react"
+import React, { useCallback, useEffect, useRef, useState } from "react"
 import { Header } from "./SheldonCooper/Header/Header"
 import { Options } from "./SheldonCooper/Options/Options"
 import {Results} from "./SheldonCooper/Results/Results"
@@ -12,22 +12,19 @@ export const SheldonMode = () => {
   const [userChoice, setUserChoice] = useState<'paper' | 'rock' | 'scissors' | 'spock' | 'lizard' | null>(null);
   const [winner, setWinner] = useState<'user' | 'house' | 'draw' | null>(null);
 
-  const [score, setScore] = useState(() => {
-    const saved = localStorage.getItem('SCORE_POINTS');
-    return saved ? Number(saved) : 0;
-  })
+  const hasScored = useRef(false);
 
-  useEffect(() => {
-    localStorage.setItem('SCORE_POINTS', score.toString())
-  });
+  const [score, setScore] = useState(0);
 
   const handlePlayAgain = () => {
     setUserChoice(null);
     setWinner(null);
+    hasScored.current = false;
   }
 
   const handleHouseChoice = useCallback((houseChoice: Choice) => {
-
+    if(hasScored.current) return;
+    hasScored.current = true
 
     let result: Winner = null;
 
@@ -44,10 +41,9 @@ export const SheldonMode = () => {
       setScore((prev) => prev + 1);
     } else {
       result = 'house';
-      setScore((prev) =>  Math.max(0, prev - 1));
     }
     setWinner(result);
-  },[userChoice, winner]);
+  },[userChoice]);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
